@@ -1,6 +1,8 @@
 import xml.etree.ElementTree as ET
 import networkx as nx
 
+# test git
+
 # Step 1: Parse the OSM XML file
 def parse_osm(file_path):
     tree = ET.parse(file_path)
