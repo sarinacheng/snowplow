@@ -1,2 +1,2 @@
 # snowplow
-# yuh
+genq quantum computing hackathon
