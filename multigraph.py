@@ -45,7 +45,7 @@ def create_multigraph(nodes, ways):
     return G
 
 # Main execution
-file_path = 'C:\\Users\\sarin\\VSCode\\multigraph\\downtown small.osm' # Path to the OSM XML file
+file_path = './downtown small.osm' # Path to the OSM XML file
 nodes, ways = parse_osm(file_path)
 multigraph = create_multigraph(nodes, ways)
 
