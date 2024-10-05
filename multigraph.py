@@ -1,5 +1,6 @@
 import xml.etree.ElementTree as ET
 import networkx as nx
+import matplotlib.pyplot as plt
 
 # test git
 
@@ -54,27 +55,19 @@ nodes, ways = parse_osm(file_path)
 multigraph = create_multigraph(nodes, ways)
 
 # Print the multigraph nodes and edges
-print("Nodes:", multigraph.nodes(data=True))
-print("Edges:", multigraph.edges(data=True))
+#print("Nodes:", multigraph.nodes(data=True))
+#print("Edges:", multigraph.edges(data=True))
 
-# Step 1: Build the graph from the adjacency matrix
-def build_graph(data):
-    G = nx.MultiGraph()  # Use MultiGraph to allow multiple edges between nodes
+#idk
+nodes = multigraph.nodes(data=True)
+edges = multigraph.edges(data=True)
 
-    # Add nodes
-    for node in data[multigraph.nodes(data=True)]:
-        G.add_node(node['id'], label=node['label'])
+#create agraph
+G = nx.Graph()
 
-    # Add edges with weights (number of edges between nodes)
-    n = len(data['nodes'])
-    adjacency_matrix = data['adjacency_matrix']
-    for i in range(n):
-        for j in range(i, n):
-            weight = adjacency_matrix[i][j]
-            if weight > 0:
-                for _ in range(weight):
-                    G.add_edge(i + 1, j + 1)
+G.add_nodes_from(nodes)
+G.add_edges_from(edges)
 
-    return G
-
-build_graph(multigraph)
+#draw
+nx.draw(G, with_labels=True)
+plt.show()
