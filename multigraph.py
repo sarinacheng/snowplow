@@ -33,7 +33,7 @@ def create_multigraph(nodes):
     return G
 
 # Main execution
-file_path = '/mnt/data/downtown small.osm'  # Path to the OSM XML file
+file_path = '.\downtown small.osm'  # Path to the OSM XML file
 nodes = parse_osm(file_path)
 multigraph = create_multigraph(nodes)
 
