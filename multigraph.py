@@ -33,7 +33,7 @@ def create_multigraph(nodes):
     return G
 
 # Main execution
-file_path = '.\downtown small.osm'  # Path to the OSM XML file
+file_path = '.\map.osm'  # Path to the OSM XML file
 nodes = parse_osm(file_path)
 multigraph = create_multigraph(nodes)
 
@@ -45,9 +45,10 @@ multigraph = create_multigraph(nodes)
 nodes = multigraph.nodes(data=True)
 edges = multigraph.edges(data=True)
 
-#create agraph
+# Create a graph
 G = nx.Graph()
 
+# Add nodes and edges
 G.add_nodes_from(nodes)
 G.add_edges_from(edges)
 
